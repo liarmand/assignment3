@@ -1110,19 +1110,10 @@ def p_error(t):
     print("Whoa. We're  hosed")
 
 
-import profile
-
 # Build the grammar
-
-data = '''
- #include <stdio.h>
-
-int main (void)
-{
-  puts ("Hello, World!");
-  return 0;
-}
- '''
+f = open('input.txt')
+data = f.read()
+f.close()
 
 parser = yacc.yacc()
 yacc.yacc(method='LALR', write_tables=True, debug=True)
