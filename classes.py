@@ -11,6 +11,21 @@ class AST:
 
     def __repr__(self):
         if len(self.vertices) == 0:
-            return str(str(self.node_type) + ":[]")
-        return str(
-            str(self.node_type) + ":[" + "".join([elem.node_type + "," for elem in self.vertices]).rstrip(",") + "]")
+            return str(str(self.node_type) + ":{}")
+
+        temp = ""
+        internal =""
+        if len(self.vertices) == 1:
+            temp = str(self.node_type + ":[")
+            internal = self.vertices[0].__repr__()
+        else:
+            temp = str(self.node_type+":[")
+            for elem in self.vertices:
+                internal += elem.__repr__() + ","
+            internal = internal[0:-1]
+        if len(self.vertices) == 1:
+            temp += internal + "]"
+        else:
+            temp += internal + "]"
+        return str(temp)
+            #str(self.node_type) + ":[" + "".join([elem.node_type + "," for elem in self.vertices]).rstrip(",") + "]")

@@ -1120,9 +1120,9 @@ parser = yacc.yacc()
 yacc.yacc(method='LALR', write_tables=True, debug=True)
 parser.parse(input=data)
 
-tr = AST()
-#tr.__init__(int)
-answer = tr.__repr__()
+answer = "{"
+answer += (ast_roots_lits[0].__repr__())
+answer += "}"
 
 f = open("output.txt", "w")
 f.write(answer)
