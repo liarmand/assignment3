@@ -182,6 +182,9 @@ int main (void)
   return 0;
 }
  '''
+f = open('input.txt', "r")
+data = f.read()
+f.close()
 
 # Give the lexer some input
 lexer.input(data)

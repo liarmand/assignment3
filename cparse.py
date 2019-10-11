@@ -1110,13 +1110,21 @@ def p_error(t):
     print("Whoa. We're  hosed")
 
 
-# Build the grammar
-f = open('input.txt')
+# Reading input file
+f = open('input.txt', "r")
 data = f.read()
 f.close()
 
+# Build the grammar
 parser = yacc.yacc()
 yacc.yacc(method='LALR', write_tables=True, debug=True)
 parser.parse(input=data)
 
-print()
+tr = AST()
+#tr.__init__(int)
+answer = tr.__repr__()
+
+f = open("output.txt", "w")
+f.write(answer)
+f.close()
+
